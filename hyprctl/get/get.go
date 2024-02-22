@@ -3,7 +3,7 @@ package get
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/edjubert/hyprland-ipc-go/types"
+	"github.com/ImNotTwig/hyprland-ipc-go/types"
 	"os/exec"
 )
 
