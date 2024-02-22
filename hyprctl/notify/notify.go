@@ -2,7 +2,7 @@ package notify
 
 import (
 	"fmt"
-	"github.com/edjubert/hyprland-ipc-go/internal/socket"
+	"github.com/ImNotTwig/hyprland-ipc-go/internal/socket"
 )
 
 const (
