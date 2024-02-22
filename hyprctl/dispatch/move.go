@@ -2,9 +2,9 @@ package dispatch
 
 import (
 	"fmt"
-	"github.com/edjubert/hyprland-ipc-go/hyprctl/get"
-	"github.com/edjubert/hyprland-ipc-go/internal/socket"
-	"github.com/edjubert/hyprland-ipc-go/types"
+	"github.com/ImNotTwig/hyprland-ipc-go/hyprctl/get"
+	"github.com/ImNotTwig/hyprland-ipc-go/internal/socket"
+	"github.com/ImNotTwig/hyprland-ipc-go/types"
 	"math/rand"
 )
 
