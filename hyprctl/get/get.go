@@ -130,7 +130,6 @@ func (g *Get) Workspaces() ([]types.HyprlandWorkspace, error) {
 		return nil, err
 	}
 
-	fmt.Println(workspaces)
 	return workspaces, nil
 }
 
