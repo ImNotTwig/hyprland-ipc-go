@@ -15,6 +15,10 @@ func (m *Move) WindowPixelExact(x, y int, address string) error {
 	return socket.WriteCmd(fmt.Sprintf("%s %s %d %d,address:%s", DispatchKey, MoveWindowPixelExact, x, y, address))
 }
 
+func (m *Move) GoToWorkspace(workspaceName) error {
+	return socket.WriteCmd(fmt.Sprintf("%s %s %s", DispatchKey, Workspace, workspaceName))
+}
+
 // ToWorkspaceName moves a given HyprlandClient.Address to a HyprlandWorkspace.Name and focus the HyprlandClient
 func (m *Move) ToWorkspaceName(workspaceName, clientAddress string) error {
 	return socket.WriteCmd(fmt.Sprintf("%s %s %s,address:%s", DispatchKey, MoveToWorkspace, workspaceName, clientAddress))
