@@ -15,7 +15,7 @@ func (m *Move) WindowPixelExact(x, y int, address string) error {
 	return socket.WriteCmd(fmt.Sprintf("%s %s %d %d,address:%s", DispatchKey, MoveWindowPixelExact, x, y, address))
 }
 
-func (m *Move) GoToWorkspace(workspaceName) error {
+func (m *Move) GoToWorkspace(workspaceName string) error {
 	return socket.WriteCmd(fmt.Sprintf("%s %s %s", DispatchKey, Workspace, workspaceName))
 }
 
