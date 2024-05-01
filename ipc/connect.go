@@ -25,9 +25,9 @@ func GetSignature() string {
 	return os.Getenv(HyprlandInstanceSignature)
 }
 
-// StartUnixConnection returns a connection to a socket name under /tmp/hypr/<HYPRLAND_INSTANCE_SIGNATURE>/.socketname.sock
+// StartUnixConnection returns a connection to a socket name under /run/user/1000/hypr/<HYPRLAND_INSTANCE_SIGNATURE>/.socketname.sock
 func StartUnixConnection(name string) net.Conn {
-	connection, err := net.Dial("unix", fmt.Sprintf("/tmp/hypr/%s/%s", GetSignature(), name))
+	connection, err := net.Dial("unix", fmt.Sprintf("/run/user/1000/hypr/%s/%s", GetSignature(), name))
 	if err != nil {
 		panic(err)
 	}
@@ -105,7 +105,7 @@ const MaxDialAttemp = 10
 //	}
 func ConnectHyprctl(attempt int) (net.Conn, error) {
 	signature := GetSignature()
-	hyprctl := "/tmp/hypr/" + signature + "/.socket.sock"
+	hyprctl := "/run/user/1000/hypr/" + signature + "/.socket.sock"
 
 	conn, err := net.Dial("unix", hyprctl)
 	if err != nil {
@@ -133,7 +133,7 @@ type HyprlandCallback func(socketMessages HyprSocketMessage)
 // ConnectEvents opens a connection to the readable hyprland socket
 func ConnectEvents(callbacks []HyprlandCallback) {
 	signature := GetSignature()
-	socket := "/tmp/hypr/" + signature + "/.socket2.sock"
+	socket := "/run/user/1000/hypr/" + signature + "/.socket2.sock"
 
 	conn, err := net.Dial("unix", socket)
 	if err != nil {
